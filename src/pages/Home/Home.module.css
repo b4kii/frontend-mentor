@@ -1,0 +1,137 @@
+.container {
+  background-color: #181818;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu {
+  display: flex;
+}
+
+.menuItems {
+  cursor: pointer;
+  margin-left: 5rem;
+  z-index: 2;
+}
+
+.pattern {
+  height: 100vh;
+  width: 100vw;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%,
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 10vmin 10vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: 300ms ease-in-out;
+}
+
+.menuLink {
+  font-size: 3rem;
+  display: block;
+  padding-bottom: 2rem;
+}
+
+.linkText {
+  display: block;
+  transition: 500ms;
+}
+
+.sideWrapper {
+  /* backdrop-filter: blur(30px); */
+  background: seashell;
+  display: grid;
+  place-content: center;
+  position: absolute;
+  height: 100vh;
+  height: 100svh;
+  width: 50vw;
+  top: 0;
+  right: 0;
+  transition: 300ms ease-in-out;
+  transform: translateX(50vw);
+}
+
+.menuItems:hover .linkText {
+  opacity: .4;
+}
+
+.menuItems:hover ~ .pattern {
+  background-size: 8vmin 8vmin;
+}
+
+.menuLink:hover .linkText {
+  transform: translateX(3rem);
+  opacity: 1;
+}
+
+.menuLink:hover:nth-child(1) ~ .sideWrapper:nth-child(2) {
+  transform: translateX(0);
+}
+
+.menuLink:hover:nth-child(3) ~ .sideWrapper:nth-child(4) {
+  transform: translateX(0);
+}
+
+.menuLink:hover:nth-child(5) ~ .sideWrapper:nth-child(6) {
+  transform: translateX(0);
+}
+
+.menuLink:hover:nth-child(7) ~ .sideWrapper:nth-child(8) {
+  transform: translateX(0);
+}
+
+.menuLink:hover:nth-child(9) ~ .sideWrapper:nth-child(10) {
+  transform: translateX(0);
+}
+/* 
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.yellow {
+  background-color: yellow;
+} */
+
+#menu[data-active-index="1"] > .pattern {
+  background-position: 0% -20%;
+}
+
+#menu[data-active-index="2"] > .pattern {
+  background-position: 0% -40%;
+}
+
+#menu[data-active-index="3"] > .pattern {
+  background-position: 0% -60%;
+}
+
+#menu[data-active-index="4"] > .pattern {
+  background-position: 0% -80%;
+}
+
+#menu[data-active-index="5"] > .pattern {
+  background-position: 0% -100%;
+}
