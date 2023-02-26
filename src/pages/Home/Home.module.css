@@ -61,6 +61,7 @@ a {
   right: 0;
   transition: 300ms ease-in-out;
   transform: translateX(50vw);
+  transition-delay: 100ms;
 }
 
 .menuItems:hover .linkText {

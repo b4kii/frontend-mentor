@@ -9,8 +9,8 @@ import PricingComponent from "./pages/PricingComponent";
 import SocialProofSection from "./pages/SocialProofSection";
 import TipCalculator from "./pages/TipCalculator";
 
-// const router = createHashRouter([
-const router = createBrowserRouter([
+const router = createHashRouter([
+// const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
