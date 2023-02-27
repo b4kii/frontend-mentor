@@ -17,7 +17,24 @@ function Rating({ children }) {
 }
 
 function Card({ image, name, children }) {
-  return <div>Card</div>;
+  return (
+    <div className={styles.cardContainer}>
+      <div className={styles.customerDetails}>
+        <img
+          src={image}
+          alt="name"
+          className={styles.customerPhoto}
+          width="40"
+          height="40"
+        />
+        <div>
+          <p className={styles.customerName}>{name}</p>
+          <p style={{color: "var(--soft-pink)", fontWeight: 500}}>Verified buyer</p>
+        </div>
+      </div>
+      <p className={styles.cardContent}>" {children} "</p>
+    </div>
+  );
 }
 
 export default function SocialProofSection() {
@@ -27,7 +44,7 @@ export default function SocialProofSection() {
         <div className={styles.top}>
           <div className={styles.topLeft}>
             <h1>
-              <span>10,000+</span>of our users love our products.
+              10,000+ of our users love our products.
             </h1>
             <p>
               We only provide great products combined with excellent customer
@@ -41,7 +58,34 @@ export default function SocialProofSection() {
             <Rating>Rated 5 stars in BestTech</Rating>
           </div>
         </div>
-        <div className={styles.bottom}></div>
+        <div className={styles.bottom}>
+          <div className={styles.cards}>
+            <Card
+              image={"/src/assets/social-proof-section/images/image-colton.jpg"}
+              name="Colton Smith"
+            >
+              We needed the same printed design as the one we had ordered a week
+              prior. Not only did they find the original order, but we also
+              received it in time. Excellent!
+            </Card>
+            <Card
+              image={"/src/assets/social-proof-section/images/image-irene.jpg"}
+              name="Irene Roberts"
+            >
+              Customer service is always excellent and very quick turn around.
+              Completely delighted with the simplicity of the purchase and the
+              speed of delivery.
+            </Card>
+            <Card
+              image={"/src/assets/social-proof-section/images/image-anne.jpg"}
+              name="Anne Wallace"
+            >
+              Put an order with this company and can only praise them for the
+              very high standard. Will definietely use them again and recommend
+              them to everyone!
+            </Card>
+          </div>
+        </div>
       </div>
     </div>
   );
