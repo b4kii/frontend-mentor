@@ -116,3 +116,10 @@ a {
 #menu[data-active-index="5"] > .pattern {
   background-position: 0% -100%;
 }
+
+@media screen and (width <= 1024px) {
+  .sideWrapper {
+    display: none;
+    opacity: 0;
+  }
+}
