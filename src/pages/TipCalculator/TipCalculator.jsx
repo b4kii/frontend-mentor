@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./TipCalculator.module.css";
 
-function TipButton({ children, activeButton, setActiveButton, value }) {
+function TipButton({
+  children,
+  activeButton,
+  setActiveButton,
+  value,
+  setCustomTipValue,
+}) {
   return (
     <button
       className={
@@ -13,6 +19,7 @@ function TipButton({ children, activeButton, setActiveButton, value }) {
       value={value}
       onClick={() => {
         setActiveButton(value);
+        setCustomTipValue("");
       }}
     >
       {children}
@@ -28,6 +35,7 @@ function NumberInput({
   icon,
   isCustom,
   placeholder,
+  setTipValue
 }) {
   const isValid = (string) => {
     return /^[\d]+[.]?[\d]*$/.test(string);
@@ -36,14 +44,21 @@ function NumberInput({
   return (
     <>
       {!isCustom && (
-        <label htmlFor={id} className={styles.numberLabel}>
+        <label
+          htmlFor={id}
+          className={
+            id === "people" && parseInt(value) <= 0
+              ? `${styles.numberLabel} ${styles.inputError}`
+              : styles.numberLabel
+          }
+        >
           {children}
         </label>
       )}
       <input
         id={id}
         className={
-          id === "people" && value === "0"
+          id === "people" && parseInt(value) <= 0
             ? `${styles.numberInput} ${styles.inputError}`
             : styles.numberInput
         }
@@ -61,18 +76,36 @@ function NumberInput({
             setValue("");
           }
         }}
+        onFocus={() => {
+          isCustom && setTipValue(0);
+        }}
       />
     </>
   );
 }
 
 export default function TipCalculator() {
+  const tipValuePlaceholder = [5, 10, 15, 25, 50];
   const [bill, setBill] = useState("");
   const [peopleCount, setPeopleCount] = useState("");
-  const [customTip, setCustomTip] = useState("");
+  const [customTipValue, setCustomTipValue] = useState("");
+  const [tipValue, setTipValue] = useState(0);
+
   const [tipAmount, setTipAmount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
-  const [activeButton, setActiveButton] = useState(null);
+
+  useEffect(() => {
+    if (peopleCount !== "" && parseInt(peopleCount) !== 0) {
+      const tip = customTipValue !== "" ? parseInt(customTipValue) : tipValue;
+      const tipPerPerson =
+        (parseFloat(bill) * (tip / 100)) / parseInt(peopleCount);
+
+      setTipAmount(tipPerPerson);
+
+      const totalBill = parseFloat(bill) / parseInt(peopleCount) + tipAmount;
+      setTotalAmount(totalBill);
+    }
+  }, [customTipValue, tipValue, peopleCount, bill]);
 
   return (
     <div className={styles.container}>
@@ -81,7 +114,7 @@ export default function TipCalculator() {
         <span>TTER</span>
       </div>
       <div className={styles.calculatorContainer}>
-        <div className={styles.wrapper}>
+        <div className={styles.inputsWrapper}>
           <NumberInput
             id="bill"
             value={bill}
@@ -94,47 +127,25 @@ export default function TipCalculator() {
           <div className={styles.tipButtonsGroup}>
             <p>Select Tip %</p>
             <div className={styles.buttonsWrapper}>
-              <TipButton
-                activeButton={activeButton}
-                setActiveButton={setActiveButton}
-                value="5"
-              >
-                {" "}
-                5%{" "}
-              </TipButton>
-              <TipButton
-                activeButton={activeButton}
-                setActiveButton={setActiveButton}
-                value="10"
-              >
-                10%
-              </TipButton>
-              <TipButton
-                activeButton={activeButton}
-                setActiveButton={setActiveButton}
-                value="15"
-              >
-                15%
-              </TipButton>
-              <TipButton
-                activeButton={activeButton}
-                setActiveButton={setActiveButton}
-                value="25"
-              >
-                25%
-              </TipButton>
-              <TipButton
-                activeButton={activeButton}
-                setActiveButton={setActiveButton}
-                value="50"
-              >
-                50%
-              </TipButton>
+              {tipValuePlaceholder.map((item) => {
+                return (
+                  <TipButton
+                    key={item}
+                    activeButton={tipValue}
+                    setActiveButton={setTipValue}
+                    setCustomTipValue={setCustomTipValue}
+                    value={item}
+                  >
+                    {item}%
+                  </TipButton>
+                );
+              })}
               <NumberInput
                 isCustom={true}
-                value={customTip}
-                setValue={setCustomTip}
+                value={customTipValue}
+                setValue={setCustomTipValue}
                 placeholder="Custom"
+                setTipValue={setTipValue}
               />
             </div>
           </div>
@@ -147,26 +158,49 @@ export default function TipCalculator() {
           >
             Number of People
           </NumberInput>
+        </div>
 
-          <div className={styles.summaryWrapper}>
+        <div className={styles.summaryWrapper}>
+          <div>
             <div className={styles.summaryContent}>
               <p>Tip Amount</p>
-              <div className={styles.price}>${tipAmount.toFixed(2)}</div>
+              <div className={styles.price}>
+                ${
+                  tipAmount === 0
+                  ? tipAmount.toFixed(2)
+                  : Math.floor(tipAmount * 100) / 100
+                }
+                {/* // ${Math.floor(tipAmount * 100) / 100} */}
+              </div>
             </div>
             <div className={styles.summaryContent}>
               <p>Total</p>
-              <div className={styles.price}>${totalAmount.toFixed(2)}</div>
+              <div className={styles.price}>
+                ${
+                  totalAmount === 0
+                  ? totalAmount.toFixed(2)
+                  : Math.floor(totalAmount * 100) / 100
+                }
+              </div>
             </div>
-            <button
-              className={
-                totalAmount || tipAmount
-                  ? `${styles.resetButton}`
-                  : `${styles.resetButton} ${styles.inactiveButton}`
-              }
-            >
-              RESET
-            </button>
           </div>
+          <button
+            className={
+              totalAmount || tipAmount || bill || peopleCount || customTipValue
+                ? `${styles.resetButton}`
+                : `${styles.resetButton} ${styles.inactiveButton}`
+            }
+            onClick={() => {
+              setBill("");
+              setCustomTipValue("");
+              setPeopleCount("");
+              setTipAmount(0);
+              setTotalAmount(0);
+              setTipValue(0);
+            }}
+          >
+            RESET
+          </button>
         </div>
       </div>
     </div>

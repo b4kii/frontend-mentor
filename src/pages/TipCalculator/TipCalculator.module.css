@@ -46,6 +46,16 @@
   margin-bottom: .5rem;
   color: var(--dark-grayish-cyan);
   font-size: .7em;
+  position: relative;
+}
+
+.numberLabel.inputError::after {
+  content: "Can't be zero";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: orange;
+  font-size: .9em;
 }
 
 .numberInput {
@@ -65,13 +75,22 @@
   outline: 3px solid orange;
 }
 
-.wrapper {
+.numberInput.inputError::after {
+  content: "siema";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+}
+
+.inputsWrapper {
   width: 90%;
+  max-width: 30rem;
   margin-inline: auto;
 }
 
 .tipButtonsGroup {
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 .tipButtonsGroup > p {
@@ -112,19 +131,22 @@
   border-radius: .5rem;
   margin: 2rem 0;
   padding: 1.5rem;
+  width: 90%;
+  max-width: 30rem;
+  margin-inline: auto;
 }
 
 .summaryWrapper p {
   position: relative;
   font-size: .7em;
   color: var(--white);
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 }
 
 .summaryWrapper p::after {
   content: "/\00a0person";
   position: absolute;
-  top: 90%;
+  top: 1.5rem;
   left: 0;
   color: var(--dark-grayish-cyan);
   font-size: .8em;
@@ -132,12 +154,12 @@
 
 .resetButton {
   cursor: pointer;
-  padding: .8rem;
+  padding: .5rem;
   width: 100%;
   border-radius: .5rem;
   background-color: var(--strong-cyan);
   color: var(--very-dark-cyan);
-  /* margin-top: 3rem; */
+  margin-top: 3rem;
 }
 
 .resetButton:hover {
@@ -151,9 +173,65 @@
 .summaryContent {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .price {
   font-size: 1.5em;
   color: var(--strong-cyan);
 }
+
+@media screen and (width >= 1440px) {
+  .container {
+    height: 100vh;
+    height: 100svh;
+    display: grid;
+    place-content: center;
+    /* padding: auto auto; */
+  }
+
+  .calculatorContainer {
+    display: flex;
+    /* width: 70%;
+    height: 60%; */
+    width: 60vw;
+    height: 60vh;
+    margin-inline: auto;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    gap: 3rem;
+  }
+
+  .buttonsWrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .inputsWrapper {
+    margin: auto auto;
+  }
+
+  .summaryWrapper {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1.5rem;
+  }
+
+  .summaryWrapper, .inputsWrapper {
+    margin: 0;
+  }
+
+  .inputsWrapper {
+    margin: auto;
+  }
+
+  .tipButtonsGroup {
+    margin: 4rem 0;
+  }
+
+  .price {
+    font-size: 2em;
+  }
+}
+
