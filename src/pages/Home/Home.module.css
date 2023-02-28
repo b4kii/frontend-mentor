@@ -49,18 +49,18 @@ a {
 }
 
 .sideWrapper {
-  /* backdrop-filter: blur(30px); */
   background: seashell;
   display: grid;
   place-content: center;
   position: absolute;
   height: 100vh;
   height: 100svh;
-  width: 50vw;
+  width: max-content;
   top: 0;
   right: 0;
   transition: 300ms ease-in-out;
-  transform: translateX(50vw);
+  /* transform: translateX(50vw); */
+  transform: translateX(100%);
   transition-delay: 100ms;
 }
 
@@ -96,26 +96,6 @@ a {
 .menuLink:hover:nth-child(9) ~ .sideWrapper:nth-child(10) {
   transform: translateX(0);
 }
-/* 
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.purple {
-  background-color: purple;
-}
-
-.yellow {
-  background-color: yellow;
-} */
 
 #menu[data-active-index="1"] > .pattern {
   background-position: 0% -20%;
