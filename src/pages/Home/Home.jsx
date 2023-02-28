@@ -12,7 +12,7 @@ function MenuItem({ path, children, sideType, src }) {
       <div className={`${sideType} ${styles.sideWrapper}`}>
         <h1>PREVIEW</h1>
         <img
-          src={`/src/assets/${src}/design/desktop-preview.jpg`}
+          src={`./src/assets/${src}/design/desktop-preview.jpg`}
           alt={children}
           height="660"
           width="900"
