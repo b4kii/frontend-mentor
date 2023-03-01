@@ -85,7 +85,7 @@ function NumberInput({
 }
 
 export default function TipCalculator() {
-  const tipValuePlaceholder = [5, 10, 15, 25, 50];
+  const tipValueArray = [5, 10, 15, 25, 50];
   const [bill, setBill] = useState("");
   const [peopleCount, setPeopleCount] = useState("");
   const [customTipValue, setCustomTipValue] = useState("");
@@ -127,7 +127,7 @@ export default function TipCalculator() {
           <div className={styles.tipButtonsGroup}>
             <p>Select Tip %</p>
             <div className={styles.buttonsWrapper}>
-              {tipValuePlaceholder.map((item) => {
+              {tipValueArray.map((item) => {
                 return (
                   <TipButton
                     key={item}

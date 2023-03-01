@@ -18,7 +18,6 @@ function MenuItem({ path, children, src }) {
       <div className={styles.sideWrapper}>
         <h1>PREVIEW</h1>
         <img
-          // src={`src/assets/${src}/design/desktop-preview.jpg`}
           src={src}
           alt={children}
           height="660"

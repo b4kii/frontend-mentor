@@ -53,7 +53,6 @@ a {
 }
 
 .sideWrapper {
-  background: seashell;
   display: grid;
   place-content: center;
   position: absolute;
@@ -66,6 +65,11 @@ a {
   /* transform: translateX(50vw); */
   transform: translateX(100%);
   transition-delay: 100ms;
+}
+
+.sideWrapper h1 {
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .menuItems:hover .linkText {
