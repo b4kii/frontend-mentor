@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
 .container {
+  font-family: "Righteous", cursive;
   background-color: #181818;
   height: 100vh;
   height: 100svh;
@@ -23,6 +26,7 @@ a {
 
 .pattern {
   height: 100vh;
+  height: 100svh;
   width: 100vw;
   background-image: radial-gradient(
     rgba(255, 255, 255, 0.1) 9%,
@@ -38,7 +42,7 @@ a {
 }
 
 .menuLink {
-  font-size: 3rem;
+  font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem);
   display: block;
   padding-bottom: 2rem;
 }
@@ -65,7 +69,7 @@ a {
 }
 
 .menuItems:hover .linkText {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .menuItems:hover ~ .pattern {
@@ -118,6 +122,10 @@ a {
 }
 
 @media screen and (width <= 1024px) {
+  .menuItems {
+    margin-left: 1rem;
+  }
+
   .sideWrapper {
     display: none;
     opacity: 0;

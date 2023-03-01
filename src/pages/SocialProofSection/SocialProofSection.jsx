@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./SocialProofSection.module.css";
 
+import AnneImage from "/src/assets/social-proof-section/images/image-anne.jpg";
+import ColtonImage from "/src/assets/social-proof-section/images/image-colton.jpg";
+import IreneImage from "/src/assets/social-proof-section/images/image-irene.jpg";
+
 function Rating({ children }) {
   return (
     <div className={styles.ratingWrapper}>
@@ -61,7 +65,7 @@ export default function SocialProofSection() {
         <div className={styles.bottom}>
           <div className={styles.cards}>
             <Card
-              image={"/src/assets/social-proof-section/images/image-colton.jpg"}
+              image={ColtonImage}
               name="Colton Smith"
             >
               We needed the same printed design as the one we had ordered a week
@@ -69,7 +73,7 @@ export default function SocialProofSection() {
               received it in time. Excellent!
             </Card>
             <Card
-              image={"/src/assets/social-proof-section/images/image-irene.jpg"}
+              image={IreneImage}
               name="Irene Roberts"
             >
               Customer service is always excellent and very quick turn around.
@@ -77,7 +81,7 @@ export default function SocialProofSection() {
               speed of delivery.
             </Card>
             <Card
-              image={"/src/assets/social-proof-section/images/image-anne.jpg"}
+              image={AnneImage}
               name="Anne Wallace"
             >
               Put an order with this company and can only praise them for the
