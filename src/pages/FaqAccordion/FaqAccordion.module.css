@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  /* text */
+  --prime-very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --prime-soft-red: hsl(14, 88%, 65%);
+
+  /* bg gradient */
+  --prime-soft-violet: hsl(273, 75%, 66%);
+  --prime-soft-blue: hsl(240, 73%, 65%);
+
+  --neutral-very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --neutral-dark-grayish-blue: hsl(240, 6%, 50%);
+
+  --divider-light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+.container {
+  background: linear-gradient(
+    to top,
+    var(--prime-soft-blue),
+    var(--prime-soft-violet)
+  );
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 12px;
+}
+
+.faqWrapper {
+  width: 90vw;
+  height: 70vh;
+  background-color: white;
+  border-radius: 1.5rem;
+  margin-top: 5rem;
+  position: relative;
+}
+
+.womanMobile {
+  position: absolute;
+  top: -7rem;
+  aspect-ratio: 2/1;
+  z-index: 2;
+}
+
+.bgPattern {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.faqItems {
+  padding-top: 8rem;
+}
+
+.mainTitle {
+  font-size: 3.5em;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.faqItemTop {
+  display: flex;
+}
+
+.question {
+  font-size: 1.25em;
+}
+
+.arrowIcon {
+  background: url("/src/assets/faq-accordion/images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  display: block;
+  aspect-ratio: 1/2;
+}

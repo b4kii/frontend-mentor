@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import styles from "./TipCalculator.module.css";
+import IconDollarImage from "/src/assets/tip-calculator/images/icon-dollar.svg";
 
 function TipButton({
   children,
@@ -119,7 +120,7 @@ export default function TipCalculator() {
             id="bill"
             value={bill}
             setValue={setBill}
-            icon="/src/assets/tip-calculator/images/icon-dollar.svg"
+            icon={IconDollarImage}
             placeholder="0"
           >
             Bill
