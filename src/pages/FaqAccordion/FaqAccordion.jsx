@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./FaqAccordion.module.css";
 
 import womanImage from "/src/assets/faq-accordion/images/illustration-woman-online-mobile.svg";
-import illustrationBox from "/src/assets/faq-accordion/images/illustration-box-desktop.svg";
+import boxImage from "/src/assets/faq-accordion/images/illustration-box-desktop.svg";
 
 function FaqItem({ question, answer }) {
   const [activeItem, setActiveItem] = useState(false);
@@ -47,21 +47,10 @@ export default function FaqAccordion() {
   return (
     <div className={styles.container}>
       <div className={styles.faqWrapper}>
+        <img src={boxImage} alt="box" className={styles.boxImage} />
         <div className={styles.imagesWrapper}>
           <div className={styles.womanImage}></div>
-          <div className={styles.bgPattern}></div>
-          <div className={styles.boxImage}></div>
         </div>
-        {/* <img
-          src={womanImage}
-          alt="Woman image"
-          className={styles.womanImage}
-        />
-        <img
-          src={illustrationBox}
-          alt="Illustartion box"
-          className={styles.illustrationBox}
-        /> */}
         <div className={styles.faqItems}>
           <h1 className={styles.mainTitle}>FAQ</h1>
           <FaqItem
