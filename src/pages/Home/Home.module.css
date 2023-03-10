@@ -50,26 +50,27 @@ a {
 .linkText {
   display: block;
   transition: 500ms;
+  width: max-content;
 }
 
 .sideWrapper {
   display: grid;
   place-content: center;
   position: absolute;
+  top: 0;
+  right: 0;
   height: 100vh;
   height: 100svh;
   width: max-content;
-  top: 0;
-  right: 0;
   transition: 300ms ease-in-out;
-  /* transform: translateX(50vw); */
   transform: translateX(100%);
-  transition-delay: 100ms;
+  opacity: 0;
 }
 
-.sideWrapper h1 {
+.preview {
   color: white;
-  margin-bottom: 1rem;
+  font-size: 5em;
+  letter-spacing: 2rem;
 }
 
 .menuItems:hover .linkText {
@@ -87,22 +88,27 @@ a {
 
 .menuLink:hover:nth-child(1) ~ .sideWrapper:nth-child(2) {
   transform: translateX(0);
+  opacity: 1;
 }
 
 .menuLink:hover:nth-child(3) ~ .sideWrapper:nth-child(4) {
   transform: translateX(0);
+  opacity: 1;
 }
 
 .menuLink:hover:nth-child(5) ~ .sideWrapper:nth-child(6) {
   transform: translateX(0);
+  opacity: 1;
 }
 
 .menuLink:hover:nth-child(7) ~ .sideWrapper:nth-child(8) {
   transform: translateX(0);
+  opacity: 1;
 }
 
 .menuLink:hover:nth-child(9) ~ .sideWrapper:nth-child(10) {
   transform: translateX(0);
+  opacity: 1;
 }
 
 #menu[data-active-index="1"] > .pattern {

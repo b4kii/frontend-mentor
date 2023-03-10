@@ -36,7 +36,7 @@ function NumberInput({
   icon,
   isCustom,
   placeholder,
-  setTipValue
+  setTipValue,
 }) {
   const isValid = (string) => {
     return /^[\d]+[.]?[\d]*$/.test(string);
@@ -96,7 +96,7 @@ export default function TipCalculator() {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    if (peopleCount !== "" && parseInt(peopleCount) !== 0) {
+    if (peopleCount !== "" && parseInt(peopleCount) !== 0 && bill !== "") {
       const tip = customTipValue !== "" ? parseInt(customTipValue) : tipValue;
       const tipPerPerson =
         (parseFloat(bill) * (tip / 100)) / parseInt(peopleCount);
@@ -166,22 +166,20 @@ export default function TipCalculator() {
             <div className={styles.summaryContent}>
               <p>Tip Amount</p>
               <div className={styles.price}>
-                ${
-                  tipAmount === 0
+                $
+                {tipAmount === 0
                   ? tipAmount.toFixed(2)
-                  : Math.floor(tipAmount * 100) / 100
-                }
+                  : Math.floor(tipAmount * 100) / 100}
                 {/* // ${Math.floor(tipAmount * 100) / 100} */}
               </div>
             </div>
             <div className={styles.summaryContent}>
               <p>Total</p>
               <div className={styles.price}>
-                ${
-                  totalAmount === 0
+                $
+                {totalAmount === 0
                   ? totalAmount.toFixed(2)
-                  : Math.floor(totalAmount * 100) / 100
-                }
+                  : Math.floor(totalAmount * 100) / 100}
               </div>
             </div>
           </div>

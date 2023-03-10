@@ -16,13 +16,8 @@ function MenuItem({ path, children, src }) {
         <span className={styles.linkText}>{children}</span>
       </NavLink>
       <div className={styles.sideWrapper}>
-        <h1>PREVIEW</h1>
-        <img
-          src={src}
-          alt={children}
-          height="660"
-          width="900"
-        />
+        <h1 className={styles.preview}>PREVIEW</h1>
+        <img src={src} alt={children} height="660" width="900" />
       </div>
     </>
   );
@@ -42,47 +37,44 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.menu} ref={menuRef} id={styles.menu}>
-        <div className={styles.menuItems}>
-          <MenuItem
-            path="/faq-accordion"
-            // src="faq-accordion"
-            src={FaqAccordionImage}
-          >
-            Faq Accordion
-          </MenuItem>
-          <MenuItem
-            path="/intro-component"
-            // src="intro-component"
-            src={IntroComponentImage}
-          >
-            Intro Component
-          </MenuItem>
-          <MenuItem
-            path="/pricing-component"
-            // src="pricing-component"
-            src={PricingComponentImage}
-          >
-            Pricing Component
-          </MenuItem>
-          <MenuItem
-            path="/social-proof-section"
-            // src="social-proof-section"
-            src={SocialProofImage}
-          >
-            Social Proof Section
-          </MenuItem>
-          <MenuItem
-            path="/tip-calculator"
-            // src="tip-calculator"
-            src={TipCalculatorImage}
-          >
-            Tip Calculator
-          </MenuItem>
+    <>
+      <div className={styles.container}>
+        <div className={styles.menu} ref={menuRef} id={styles.menu}>
+          <div className={styles.menuItems}>
+            <MenuItem
+              path="/faq-accordion"
+              src={FaqAccordionImage}
+            >
+              Faq Accordion
+            </MenuItem>
+            <MenuItem
+              path="/intro-component"
+              src={IntroComponentImage}
+            >
+              Intro Component
+            </MenuItem>
+            <MenuItem
+              path="/pricing-component"
+              src={PricingComponentImage}
+            >
+              Pricing Component
+            </MenuItem>
+            <MenuItem
+              path="/social-proof-section"
+              src={SocialProofImage}
+            >
+              Social Proof Section
+            </MenuItem>
+            <MenuItem
+              path="/tip-calculator"
+              src={TipCalculatorImage}
+            >
+              Tip Calculator
+            </MenuItem>
+          </div>
+          <div className={styles.pattern}></div>
         </div>
-        <div className={styles.pattern}></div>
       </div>
-    </div>
+    </>
   );
 }
