@@ -45,7 +45,7 @@ function FaqItem({ question, answer }) {
 
 export default function FaqAccordion() {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div className={styles.faqWrapper}>
         <img src={boxImage} alt="box" className={styles.boxImage} />
         <div className={styles.imagesWrapper}>
@@ -75,6 +75,6 @@ export default function FaqAccordion() {
           />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

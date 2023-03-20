@@ -2,7 +2,8 @@
 
 .container {
   font-family: "Righteous", cursive;
-  background-color: #181818;
+  /* background-color: #181818; */
+  background-color: whitesmoke;
   height: 100vh;
   height: 100svh;
   display: flex;
@@ -11,7 +12,8 @@
 
 a {
   text-decoration: none;
-  color: white;
+  /* color: white; */
+  color: black;
 }
 
 .menu {
@@ -29,9 +31,13 @@ a {
   height: 100svh;
   width: 100vw;
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.1) 9%,
+    rgba(0, 0, 0, .1) 9%,
     transparent 9%
   );
+  /* background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%,
+    transparent 9%
+  ); */
   background-position: 0% 0%;
   background-size: 10vmin 10vmin;
   position: absolute;
@@ -54,6 +60,7 @@ a {
 }
 
 .sideWrapper {
+  backdrop-filter: blur(5px);
   display: grid;
   place-content: center;
   position: absolute;
@@ -68,7 +75,7 @@ a {
 }
 
 .preview {
-  color: white;
+  /* color: white; */
   font-size: 5em;
   letter-spacing: 2rem;
 }

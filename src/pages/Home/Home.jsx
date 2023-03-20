@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.container}>
+      <main className={styles.container}>
         <div className={styles.menu} ref={menuRef} id={styles.menu}>
           <div className={styles.menuItems}>
             <MenuItem
@@ -47,12 +47,12 @@ export default function Home() {
             >
               Faq Accordion
             </MenuItem>
-            <MenuItem
+            {/* <MenuItem
               path="/intro-component"
               src={IntroComponentImage}
             >
               Intro Component
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem
               path="/pricing-component"
               src={PricingComponentImage}
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
           <div className={styles.pattern}></div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

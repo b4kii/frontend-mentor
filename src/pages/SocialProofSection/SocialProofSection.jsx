@@ -33,23 +33,23 @@ function Card({ image, name, children }) {
         />
         <div>
           <p className={styles.customerName}>{name}</p>
-          <p style={{color: "var(--soft-pink)", fontWeight: 500}}>Verified buyer</p>
+          <p style={{ color: "var(--soft-pink)", fontWeight: 500 }}>
+            Verified buyer
+          </p>
         </div>
       </div>
-      <p className={styles.cardContent}>" {children} "</p>
+      <p className={styles.cardContent}><q> {children} </q></p>
     </div>
   );
 }
 
 export default function SocialProofSection() {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.top}>
           <div className={styles.topLeft}>
-            <h1>
-              10,000+ of our users love our products.
-            </h1>
+            <h1>10,000+ of our users love our products.</h1>
             <p>
               We only provide great products combined with excellent customer
               service. See what our satisfied customers are saying about our
@@ -64,26 +64,17 @@ export default function SocialProofSection() {
         </div>
         <div className={styles.bottom}>
           <div className={styles.cards}>
-            <Card
-              image={ColtonImage}
-              name="Colton Smith"
-            >
+            <Card image={ColtonImage} name="Colton Smith">
               We needed the same printed design as the one we had ordered a week
               prior. Not only did they find the original order, but we also
               received it in time. Excellent!
             </Card>
-            <Card
-              image={IreneImage}
-              name="Irene Roberts"
-            >
+            <Card image={IreneImage} name="Irene Roberts">
               Customer service is always excellent and very quick turn around.
               Completely delighted with the simplicity of the purchase and the
               speed of delivery.
             </Card>
-            <Card
-              image={AnneImage}
-              name="Anne Wallace"
-            >
+            <Card image={AnneImage} name="Anne Wallace">
               Put an order with this company and can only praise them for the
               very high standard. Will definietely use them again and recommend
               them to everyone!
@@ -91,6 +82,6 @@ export default function SocialProofSection() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

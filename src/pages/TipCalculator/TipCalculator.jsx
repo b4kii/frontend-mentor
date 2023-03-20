@@ -109,7 +109,7 @@ export default function TipCalculator() {
   }, [customTipValue, tipValue, peopleCount, bill]);
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <div className={styles.mainTitle}>
         <span>SPLI</span>
         <span>TTER</span>
@@ -202,6 +202,6 @@ export default function TipCalculator() {
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
