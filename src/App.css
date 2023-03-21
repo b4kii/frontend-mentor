@@ -20,3 +20,14 @@ select {
   font: inherit;
   box-sizing: border-box;
 }
+
+
+.react-switch-bg {
+  background: linear-gradient(to right, var(--primary-gradient), var(--secondary-gradient)) !important;
+  /* outline: none !important; */
+}
+
+/* div:has(.react-switch-bg):hover .react-switch-bg{
+  background: black !important;
+  transition: none !important;
+} */

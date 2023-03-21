@@ -177,7 +177,7 @@
   color: var(--strong-cyan);
 }
 
-@media screen and (width >= 1440px) {
+@media screen and (width >= 1024px) {
   .container {
     height: 100vh;
     height: 100svh;
@@ -194,7 +194,6 @@
 
   .calculatorContainer {
     display: flex;
-    width: 60vw;
     height: 60vh;
     margin-inline: auto;
     border-radius: 1.5rem;
