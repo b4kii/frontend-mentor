@@ -3,8 +3,8 @@
 .container {
   font-family: "Righteous", cursive;
   background-color: whitesmoke;
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
 }
@@ -28,21 +28,18 @@ a {
   height: 100vh;
   height: 100svh;
   width: 100vw;
-  background-image: radial-gradient(
-    rgba(0, 0, 0, .1) 9%,
-    transparent 9%
-  );
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 9%, transparent 9%);
   background-position: 0% 0%;
   background-size: 10vmin 10vmin;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  /* z-index: 1; */
   transition: 300ms ease-in-out;
 }
 
 .menuLink {
-  font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem);
+  font-size: clamp(2rem, 1.0367rem + 4.4037vw, 5rem);
   display: block;
   padding-bottom: 2rem;
 }
@@ -69,7 +66,6 @@ a {
 }
 
 .preview {
-  /* color: white; */
   font-size: 5em;
   letter-spacing: 2rem;
   text-align: center;
@@ -131,6 +127,26 @@ a {
 
 #menu[data-active-index="5"] > .pattern {
   background-position: 0% -100%;
+}
+
+.note {
+  width: 100%;
+  position: absolute;
+  bottom: 0.5rem;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infoIcon {
+  font-size: 1.5em;
+}
+
+.note a {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @media screen and (width <= 1024px) {

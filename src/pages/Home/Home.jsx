@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styles from "./Home.module.css";
 
 import { NavLink } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 import FaqAccordionImage from "/src/assets/faq-accordion/design/desktop-preview.jpg";
 import IntroComponentImage from "/src/assets/intro-component/design/desktop-preview.jpg";
@@ -41,10 +42,7 @@ export default function Home() {
       <main className={styles.container}>
         <div className={styles.menu} ref={menuRef} id={styles.menu}>
           <div className={styles.menuItems}>
-            <MenuItem
-              path="/faq-accordion"
-              src={FaqAccordionImage}
-            >
+            <MenuItem path="/faq-accordion" src={FaqAccordionImage}>
               Faq Accordion
             </MenuItem>
             {/* <MenuItem
@@ -53,26 +51,24 @@ export default function Home() {
             >
               Intro Component
             </MenuItem> */}
-            <MenuItem
-              path="/pricing-component"
-              src={PricingComponentImage}
-            >
+            <MenuItem path="/pricing-component" src={PricingComponentImage}>
               Pricing Component
             </MenuItem>
-            <MenuItem
-              path="/social-proof-section"
-              src={SocialProofImage}
-            >
+            <MenuItem path="/social-proof-section" src={SocialProofImage}>
               Social Proof Section
             </MenuItem>
-            <MenuItem
-              path="/tip-calculator"
-              src={TipCalculatorImage}
-            >
+            <MenuItem path="/tip-calculator" src={TipCalculatorImage}>
               Tip Calculator
             </MenuItem>
           </div>
           <div className={styles.pattern}></div>
+        </div>
+        <div className={styles.note}>
+          <Icon icon="material-symbols:info-outline-rounded" className={styles.infoIcon}/>
+          <p>All designs from</p>
+          <a href="https://www.frontendmentor.io/challenges" target="_blank" rel="noopener noreferrer">
+            frontend mentor
+          </a>
         </div>
       </main>
     </>
