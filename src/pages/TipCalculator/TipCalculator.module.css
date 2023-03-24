@@ -179,8 +179,8 @@
 
 @media screen and (width >= 1024px) {
   .container {
-    height: 100vh;
-    height: 100svh;
+    min-height: 100vh;
+    min-height: 100svh;
     display: grid;
     place-content: center;
   }
@@ -194,7 +194,6 @@
 
   .calculatorContainer {
     display: flex;
-    height: 60vh;
     margin-inline: auto;
     border-radius: 1.5rem;
     padding: 2rem;

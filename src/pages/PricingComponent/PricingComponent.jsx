@@ -3,6 +3,10 @@ import Switch from "react-switch";
 import { useState } from "react";
 
 import styles from "./PricingComponent.module.css";
+import Preview from "../../components/Preview";
+
+import PricingComponentDesktopImage from "/src/assets/pricing-component/design/desktop-design-monthly.jpg";
+import PricingComponentMobileImage from "/src/assets/pricing-component/design/mobile-design-monthly.jpg";
 
 const data = [
   {
@@ -48,37 +52,45 @@ export default function PricingComponent() {
   const [checked, setChecked] = useState(true);
 
   return (
-    <main className={styles.container}>
-      <div className={styles.pricingContainer}>
-        <h1 className={styles.pricingTitle}>Our Pricing</h1>
-        <div className={styles.subscriptionPlan}>
-          <p>Annualy</p>
-          <Switch
-            onChange={() => {
-              setChecked((prev) => !prev);
-            }}
-            checked={checked}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            handleDiameter={20}
-          />
-          <p>Monthly</p>
-        </div>
-      </div>
-      <div className={styles.cardsContainer}>
-        {data.map((card) => {
-          return (
-            <PricingCard
-              key={card.price}
-              type={card.type}
-              price={checked ? card.price : (card.price * 10 + 0.09).toFixed(2)}
-              storage={card.storage}
-              users={card.users}
-              limit={card.limit}
+    <>
+      <main className={styles.container}>
+        <div className={styles.pricingContainer}>
+          <h1 className={styles.pricingTitle}>Our Pricing</h1>
+          <div className={styles.subscriptionPlan}>
+            <p>Annualy</p>
+            <Switch
+              onChange={() => {
+                setChecked((prev) => !prev);
+              }}
+              checked={checked}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              handleDiameter={20}
             />
-          );
-        })}
-      </div>
-    </main>
+            <p>Monthly</p>
+          </div>
+        </div>
+        <div className={styles.cardsContainer}>
+          {data.map((card) => {
+            return (
+              <PricingCard
+                key={card.price}
+                type={card.type}
+                price={
+                  checked ? card.price : (card.price * 10 + 0.09).toFixed(2)
+                }
+                storage={card.storage}
+                users={card.users}
+                limit={card.limit}
+              />
+            );
+          })}
+        </div>
+      </main>
+      <Preview
+        imageMobile={PricingComponentMobileImage}
+        imageDesktop={PricingComponentDesktopImage}
+      />
+    </>
   );
 }

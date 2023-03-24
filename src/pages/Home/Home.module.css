@@ -20,7 +20,7 @@ a {
 
 .menuItems {
   cursor: pointer;
-  margin-left: 5rem;
+  margin-left: 1rem;
   z-index: 2;
 }
 
@@ -39,9 +39,11 @@ a {
 }
 
 .menuLink {
-  font-size: clamp(2rem, 1.0367rem + 4.4037vw, 5rem);
+  font-size: clamp(2rem, 1.0367rem + 4.4037vw, 4rem);
+  /* font-size: 2rem; */
   display: block;
   padding-bottom: 2rem;
+  /* z-index: 10; */
 }
 
 .linkText {
@@ -63,6 +65,7 @@ a {
   transition: 300ms ease-in-out;
   transform: translateX(100%);
   opacity: 0;
+  z-index: -1;
 }
 
 .preview {

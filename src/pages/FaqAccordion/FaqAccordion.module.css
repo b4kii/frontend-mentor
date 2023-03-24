@@ -143,6 +143,10 @@
 }
 
 @media screen and (width >= 1024px) {
+  .container {
+    padding-top: 5rem;
+  }
+
   .faqWrapper {
     width: 950px;
     height: 60vh;
@@ -201,3 +205,4 @@
     margin: 0;
   }
 }
+

@@ -24,10 +24,71 @@ select {
 
 .react-switch-bg {
   background: linear-gradient(to right, var(--primary-gradient), var(--secondary-gradient)) !important;
-  /* outline: none !important; */
 }
 
-/* div:has(.react-switch-bg):hover .react-switch-bg{
-  background: black !important;
-  transition: none !important;
-} */
+.previewOverlay {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  top: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100vw;
+  transform: translateX(-100vw);
+  backdrop-filter: blur(30px);
+  z-index: 10;
+}
+
+.previewButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 10;
+  padding: 1rem;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background-color: white;
+  color: #181818;
+  font-weight: bold;
+  transition: 200ms ease-in-out;
+}
+
+.previewButton:hover {
+  background-color: #181818;
+  color: white;
+}
+
+.previewButton.active {
+  background-color: #181818;
+  color: white;
+}
+
+.in {
+  animation: slide-in 300ms ease-in-out forwards;
+  animation-timing-function: cubic-bezier(1,.06,.75,.83);
+}
+
+.out {
+  animation: slide-out 300ms ease-in-out forwards;
+  animation-timing-function: cubic-bezier(1,.06,.75,.83);
+}
+
+@keyframes slide-in {
+  from { 
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from { 
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}

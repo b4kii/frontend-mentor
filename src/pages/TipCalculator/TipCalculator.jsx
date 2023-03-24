@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import styles from "./TipCalculator.module.css";
 import IconDollarImage from "/src/assets/tip-calculator/images/icon-dollar.svg";
 
+import TipCalculatorDesktopImage from "/src/assets/tip-calculator/design/desktop-design-empty.jpg";
+import TipCalculatorMobileImage from "/src/assets/tip-calculator/design/mobile-design.jpg";
+import Preview from "../../components/Preview";
+
 function TipButton({
   children,
   activeButton,
@@ -109,99 +113,108 @@ export default function TipCalculator() {
   }, [customTipValue, tipValue, peopleCount, bill]);
 
   return (
-    <main className={styles.container}>
-      <div className={styles.mainTitle}>
-        <span>SPLI</span>
-        <span>TTER</span>
-      </div>
-      <div className={styles.calculatorContainer}>
-        <div className={styles.inputsWrapper}>
-          <NumberInput
-            id="bill"
-            value={bill}
-            setValue={setBill}
-            icon={IconDollarImage}
-            placeholder="0"
-          >
-            Bill
-          </NumberInput>
-          <div className={styles.tipButtonsGroup}>
-            <p>Select Tip %</p>
-            <div className={styles.buttonsWrapper}>
-              {tipValueArray.map((item) => {
-                return (
-                  <TipButton
-                    key={item}
-                    activeButton={tipValue}
-                    setActiveButton={setTipValue}
-                    setCustomTipValue={setCustomTipValue}
-                    value={item}
-                  >
-                    {item}%
-                  </TipButton>
-                );
-              })}
-              <NumberInput
-                isCustom={true}
-                value={customTipValue}
-                setValue={setCustomTipValue}
-                placeholder="Custom"
-                setTipValue={setTipValue}
-              />
-            </div>
-          </div>
-          <NumberInput
-            id="people"
-            value={peopleCount}
-            setValue={setPeopleCount}
-            icon="/src/assets/tip-calculator/images/icon-person.svg"
-            placeholder="0"
-          >
-            Number of People
-          </NumberInput>
+    <>
+      <main className={styles.container}>
+        <div className={styles.mainTitle}>
+          <span>SPLI</span>
+          <span>TTER</span>
         </div>
+        <div className={styles.calculatorContainer}>
+          <div className={styles.inputsWrapper}>
+            <NumberInput
+              id="bill"
+              value={bill}
+              setValue={setBill}
+              icon={IconDollarImage}
+              placeholder="0"
+            >
+              Bill
+            </NumberInput>
+            <div className={styles.tipButtonsGroup}>
+              <p>Select Tip %</p>
+              <div className={styles.buttonsWrapper}>
+                {tipValueArray.map((item) => {
+                  return (
+                    <TipButton
+                      key={item}
+                      activeButton={tipValue}
+                      setActiveButton={setTipValue}
+                      setCustomTipValue={setCustomTipValue}
+                      value={item}
+                    >
+                      {item}%
+                    </TipButton>
+                  );
+                })}
+                <NumberInput
+                  isCustom={true}
+                  value={customTipValue}
+                  setValue={setCustomTipValue}
+                  placeholder="Custom"
+                  setTipValue={setTipValue}
+                />
+              </div>
+            </div>
+            <NumberInput
+              id="people"
+              value={peopleCount}
+              setValue={setPeopleCount}
+              icon="/src/assets/tip-calculator/images/icon-person.svg"
+              placeholder="0"
+            >
+              Number of People
+            </NumberInput>
+          </div>
 
-        <div className={styles.summaryWrapper}>
-          <div>
-            <div className={styles.summaryContent}>
-              <p>Tip Amount</p>
-              <div className={styles.price}>
-                $
-                {tipAmount === 0
-                  ? tipAmount.toFixed(2)
-                  : Math.floor(tipAmount * 100) / 100}
-                {/* // ${Math.floor(tipAmount * 100) / 100} */}
+          <div className={styles.summaryWrapper}>
+            <div>
+              <div className={styles.summaryContent}>
+                <p>Tip Amount</p>
+                <div className={styles.price}>
+                  $
+                  {tipAmount === 0
+                    ? tipAmount.toFixed(2)
+                    : Math.floor(tipAmount * 100) / 100}
+                </div>
+              </div>
+              <div className={styles.summaryContent}>
+                <p>Total</p>
+                <div className={styles.price}>
+                  $
+                  {totalAmount === 0
+                    ? totalAmount.toFixed(2)
+                    : Math.floor(totalAmount * 100) / 100}
+                </div>
               </div>
             </div>
-            <div className={styles.summaryContent}>
-              <p>Total</p>
-              <div className={styles.price}>
-                $
-                {totalAmount === 0
-                  ? totalAmount.toFixed(2)
-                  : Math.floor(totalAmount * 100) / 100}
-              </div>
-            </div>
+            <button
+              className={
+                totalAmount ||
+                tipAmount ||
+                bill ||
+                peopleCount ||
+                customTipValue
+                  ? `${styles.resetButton}`
+                  : `${styles.resetButton} ${styles.inactiveButton}`
+              }
+              onClick={() => {
+                setBill("");
+                setCustomTipValue("");
+                setPeopleCount("");
+                setTipAmount(0);
+                setTotalAmount(0);
+                setTipValue(0);
+              }}
+            >
+              RESET
+            </button>
           </div>
-          <button
-            className={
-              totalAmount || tipAmount || bill || peopleCount || customTipValue
-                ? `${styles.resetButton}`
-                : `${styles.resetButton} ${styles.inactiveButton}`
-            }
-            onClick={() => {
-              setBill("");
-              setCustomTipValue("");
-              setPeopleCount("");
-              setTipAmount(0);
-              setTotalAmount(0);
-              setTipValue(0);
-            }}
-          >
-            RESET
-          </button>
         </div>
-      </div>
-    </main>
+      </main>
+      <Preview
+        imageMobile={TipCalculatorMobileImage}
+        imageDesktop={TipCalculatorDesktopImage}
+      />
+    </>
   );
 }

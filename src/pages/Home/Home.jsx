@@ -10,6 +10,7 @@ import PricingComponentImage from "/src/assets/pricing-component/design/desktop-
 import SocialProofImage from "/src/assets/social-proof-section/design/desktop-preview.jpg";
 import TipCalculatorImage from "/src/assets/tip-calculator/design/desktop-preview.jpg";
 
+
 function MenuItem({ path, children, src }) {
   return (
     <>
@@ -17,7 +18,7 @@ function MenuItem({ path, children, src }) {
         <span className={styles.linkText}>{children}</span>
       </NavLink>
       <div className={styles.sideWrapper}>
-        <h1 className={styles.preview}>PREVIEW</h1>
+        <p className={styles.preview}>preview</p>
         <img src={src} alt={children} height="660" width="900" />
       </div>
     </>
