@@ -50,7 +50,7 @@
 }
 
 .cardWrapper {
-  width: 360px;
+  /* width: 360px; */
   background-color: white;
   color: var(--dark-grayish-blue);
   padding: 2rem;
@@ -149,6 +149,7 @@
 
   .cardWrapper {
     position: relative;
+    width: 360px;
   }
 
   .cardWrapper:nth-child(2) {

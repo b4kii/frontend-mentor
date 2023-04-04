@@ -1,6 +1,7 @@
 import Switch from "react-switch";
 
 import { useState } from "react";
+import { useSpring, animated } from "react-spring";
 
 import styles from "./PricingComponent.module.css";
 import Preview from "../../components/Preview";
@@ -32,13 +33,30 @@ const data = [
   },
 ];
 
-function PricingCard({ type, price, storage, users, limit }) {
+function Number({price, checked}) {
+  const {number} = useSpring({
+    from: {number: checked ?  price * 10 + 0.09 : price },
+    number: checked ? price : price * 10 + 0.09,
+    delay: 200,
+    config: {mass: 5, tension: 30, friction: 20}
+  })
+
+  return (
+    <animated.span className={styles.price}>
+      {number.to((price) => price.toFixed(2))}
+    </animated.span>
+  );
+}
+
+// function PricingCard({ type, price, storage, users, limit }) {
+function PricingCard({ type, price, storage, users, limit, checked}) {
   return (
     <div className={styles.cardWrapper}>
       <p className={styles.cardTitle}>{type}</p>
       <p className={styles.cardPrice}>
         <span className={styles.dollar}>$</span>
-        <span className={styles.price}>{price}</span>
+        {/* <span className={styles.price}>{price}</span> */}
+        <Number price={price} checked={checked} />
       </p>
       <p className={styles.cardStorage}>{storage} Storage</p>
       <p className={styles.cardStorage}>{users}</p>
@@ -76,9 +94,11 @@ export default function PricingComponent() {
               <PricingCard
                 key={card.price}
                 type={card.type}
-                price={
-                  checked ? card.price : (card.price * 10 + 0.09).toFixed(2)
-                }
+                // price={
+                //   checked ? card.price : (card.price * 10 + 0.09).toFixed(2)
+                // }
+                price={card.price}
+                checked={checked}
                 storage={card.storage}
                 users={card.users}
                 limit={card.limit}
