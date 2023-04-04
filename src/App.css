@@ -53,6 +53,7 @@ select {
   color: #181818;
   font-weight: bold;
   transition: 200ms ease-in-out;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .1);
 }
 
 .previewButton:hover {
