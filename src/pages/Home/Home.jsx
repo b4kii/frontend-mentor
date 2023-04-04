@@ -10,9 +10,6 @@ import PricingComponentImage from "/src/assets/pricing-component/design/desktop-
 import SocialProofImage from "/src/assets/social-proof-section/design/desktop-preview.jpg";
 import TipCalculatorImage from "/src/assets/tip-calculator/design/desktop-preview.jpg";
 
-
-import Test from "../../components/Test";
-
 function MenuItem({ path, children, src }) {
   return (
     <>
